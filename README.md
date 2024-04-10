@@ -26,4 +26,4 @@ const Character:FunctionComponent = () => {
 
   return <div>{data.name}</div>;
 };
-```;
+```
