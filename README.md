@@ -1,4 +1,5 @@
 # preact-hooks
+
 Preact Hooks for JSR.io
 
 ### Examples
@@ -6,14 +7,13 @@ Preact Hooks for JSR.io
 #### useFetch
 
 ```typescript
-
 import { useFetch } from "@avalero/preact-hooks/Fetch";
 import { FunctionComponent } from "preact";
 
 // Character Preact FunctionalComponent
-const Character:FunctionComponent = () => {
+const Character: FunctionComponent = () => {
   const { data, loading, error } = useFetch<{ name: string }>(
-    "https://swapi.dev/api/people/1"
+    "https://swapi.dev/api/people/1",
   );
 
   if (loading) {

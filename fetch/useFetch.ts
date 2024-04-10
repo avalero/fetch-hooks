@@ -29,7 +29,7 @@ export type FetchOptions = {
  */
 export function useFetch<Type>(
   url: string,
-  options?: FetchOptions
+  options?: FetchOptions,
 ): {
   data: Type | null;
   loading: boolean;
