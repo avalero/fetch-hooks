@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 
 /**
  * Fetch methods
@@ -29,31 +29,34 @@ export type FetchOptions = {
  */
 export function useFetch<Type>(
   url: string,
-  options?: FetchOptions,
+  options?: FetchOptions
 ): {
   data: Type | null;
   loading: boolean;
   error: Error | null;
-  refetch: () => void;
+  refetch: (newURL?: string, newOptions?: FetchOptions) => void;
 } {
   const [data, setData] = useState<Type | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
 
-  fetch(url, options)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      return response.json();
-    })
-    .then((data) => setData(data))
-    .catch((error) => setError(error))
-    .finally(() => setLoading(false));
-
-  const refetch = () => {
-    setLoading(true);
+  useEffect(() => {
     fetch(url, options)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        return response.json();
+      })
+      .then((data) => setData(data))
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false));
+  }, [url, options]);
+
+  const refetch = (newURL?: string, newOptions?: FetchOptions) => {
+    setLoading(true);
+    setError(null);
+    fetch(newURL || url, newOptions || options)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch data");

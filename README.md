@@ -1,7 +1,7 @@
 # preact-hooks
 
 
-### Examples (tested on Deno Fresh 1.6.5)
+### Examples (tested on Deno Fresh 1.6.8)
 
 #### useFetch
 
