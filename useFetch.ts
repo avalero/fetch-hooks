@@ -2,6 +2,10 @@ import { useEffect, useState } from "preact/hooks";
 
 /**
  * Fetch methods
+ * @param GET fetch method
+ * @param POST fetch method
+ * @param PUT fetch method
+ * @param DELETE fetch method
  */
 export type FetchMethods = "GET" | "POST" | "PUT" | "DELETE";
 
