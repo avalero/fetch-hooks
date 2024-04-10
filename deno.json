@@ -1,6 +1,6 @@
 {
   "name": "@preact-hooks/fetch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "exports": {
     ".": "./mod.ts",
     "./useFetch": "./useFetch.ts"
