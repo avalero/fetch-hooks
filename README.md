@@ -1,8 +1,7 @@
 # preact-hooks
 
-Preact Hooks for JSR.io
 
-### Examples
+### Examples (tested on Deno Fresh 1.6.5)
 
 #### useFetch
 
