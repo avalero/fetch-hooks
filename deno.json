@@ -1,6 +1,6 @@
 {
   "name": "@avalero/preact-hooks",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "exports": {
     ".": "./mod.ts",
     "./useFetch": "./fetch/useFetch.ts",

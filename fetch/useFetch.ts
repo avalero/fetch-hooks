@@ -1,14 +1,26 @@
 import { useState } from "preact/hooks";
 
-type FetchMethods = "GET" | "POST" | "PUT" | "DELETE";
-type FetchOptions = {
+/**
+ * Fetch methods
+ */
+export type FetchMethods = "GET" | "POST" | "PUT" | "DELETE";
+
+/**
+ * Fetch options
+ * @param method fetch method
+ * @param headers fetch headers
+ * @param body fetch body
+ * @example { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ key: "value" }) }
+ * @example { method: "GET", headers: { "Content-Type": "application/json" }, body: "" }
+ */
+export type FetchOptions = {
   method: FetchMethods;
   headers: Record<string, string>;
   body: string;
 };
 
 /**
- *
+ * Hook for fetching data from a URL
  * @param url url to fetch data from
  * @param options fetch options: method, headers, body
  * @returns {data, loading, error, refetch} data is the fetched data, loading is a boolean indicating if the fetch is in progress, error is the error if the fetch failed, refetch is a function to refetch the data

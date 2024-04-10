@@ -1,4 +1,5 @@
 /**
  * Export all fetch related functions
  */
-export { useFetch } from "./useFetch.ts";
+
+export { useFetch, type FetchMethods, type FetchOptions } from "./useFetch.ts";
