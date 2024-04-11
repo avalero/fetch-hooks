@@ -2,8 +2,7 @@
   "name": "@preact-hooks/fetch",
   "version": "0.0.3",
   "exports": {
-    ".": "./mod.ts",
-    "./useFetch": "./useFetch.ts"
+    ".": "./mod.ts"
   },
   "description": "Preact hooks",
   "publish": {
