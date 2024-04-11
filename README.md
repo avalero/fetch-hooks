@@ -12,7 +12,7 @@ import { useFetch } from "@avalero/preact-hooks/Fetch";
 import { FunctionComponent } from "preact";
 
 // Character Preact FunctionalComponent
-const Characters = () => {
+const Character:FunctionComponen = () => {
   const { data, loading, error, refetch } = useFetch<{ name: string }>(
     "https://swapi.dev/api/people/1",
   );
@@ -36,7 +36,7 @@ import { useFetch } from "@avalero/preact-hooks/Fetch";
 import { FunctionComponent } from "preact";
 
 // Character Preact FunctionalComponent
-const Characters = () => {
+const Character:FunctionComponent = () => {
   const { data, loading, error, refetch } = useFetch<{ name: string }>(
     "https://swapi.dev/api/people/1",
   );
@@ -60,13 +60,35 @@ import { useLazyFetch } from "@avalero/preact-hooks/Fetch";
 import { FunctionComponent } from "preact";
 
 // Character Preact FunctionalComponent
-const Characters = () => {
+const Character:FunctionComponent = () => {
   const { data, loading, error, lazyFetch } = useLazyFetch<{ name: string }>();
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {(error as any).message}</p>;
   return (
     <>
       <button onClick={() => lazyFetch("https://swapi.dev/api/people/1")}>
+        Fetch
+      </button>
+      <div>{data?.name}</div>;
+    </>
+  );
+};
+```
+
+###### lazy fetch with default url
+```typescript
+
+import { useLazyFetch } from "@avalero/preact-hooks/Fetch";
+import { FunctionComponent } from "preact";
+
+// Character Preact FunctionalComponent
+const Character:FunctionComponent = () => {
+  const { data, loading, error, lazyFetch } = useLazyFetch<{ name: string }>("https://swapi.dev/api/people/1");
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {(error as any).message}</p>;
+  return (
+    <>
+      <button onClick={() => lazyFetch()}>
         Fetch
       </button>
       <div>{data?.name}</div>;
